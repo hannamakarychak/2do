@@ -1,0 +1,7 @@
+.task__label {
+  opacity: 0.7;
+
+  &--completed {
+    opacity: 0.4;
+  }
+}

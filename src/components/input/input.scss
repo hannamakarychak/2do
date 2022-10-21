@@ -1,0 +1,13 @@
+.input {
+  padding: 8px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--color-granny-smith-apple);
+  color: var(--color-nickel);
+  background-color: var(--color-nyanza);
+
+  &:focus {
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid var(--color-granny-smith-apple);
+  }
+}

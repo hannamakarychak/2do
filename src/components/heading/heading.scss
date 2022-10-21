@@ -1,0 +1,11 @@
+.heading {
+  font-weight: 400;
+  text-align: center;
+  margin: 20px auto;
+  color: var(--color-china-pink);
+
+  &--secondary {
+    text-align: left;
+    opacity: 0.7;
+  }
+}
