@@ -1,4 +1,6 @@
+import classNames from "classnames";
 import { useState } from "react";
+import { Button } from "../button/button";
 import "./input.scss";
 
 export const Input = ({ name, id, placeholder, className, type, onCreate }) => {
@@ -21,20 +23,23 @@ export const Input = ({ name, id, placeholder, className, type, onCreate }) => {
   };
 
   return (
-    <div>
+    <div className="input">
       <input
         name={name}
         id={id}
         placeholder={placeholder}
-        className={className}
+        className={classNames("input__element", className)}
         type={type}
         value={value}
         onChange={handleInputChange} // we set new value from evt.target.value
         onKeyDown={handleEnterPress} // we call handleEnterPress once onKeyDown action happens, and below we call handleButtonClick once click happens
       />
-      <button disabled={value === ""} onClick={handleButtonClick}>
-        add
-      </button>
+      <Button
+        className="input__button"
+        disabled={value === ""}
+        onClick={handleButtonClick}
+        text="add"
+      />
     </div>
   );
 };

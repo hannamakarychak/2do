@@ -1,10 +1,11 @@
-import Heading from "../heading/heading";
-import Container from "../container/container";
+import { useState } from "react";
+import { Heading } from "../heading/heading";
+import { Container } from "../container/container";
 import { List } from "../list/list";
 import { Input } from "../input/input";
-import { useState } from "react";
-import "./main.scss";
 import { Filters } from "../filters/filters";
+import "./main.scss";
+import "../content/content.scss";
 
 const Main = () => {
   const [tasks, setTasks] = useState([]); // state is declared on the upper level so we can show tasks in the list
@@ -60,17 +61,17 @@ const Main = () => {
   return (
     <main className="main">
       <Container>
-        <div className="main__content">
-          <Heading text="Here is your best to-do list" />
+        <Heading text="Here is your best to-do list" />
+        <div className="main__content content">
           <Input
             name="new-task"
             id="new-task"
             placeholder="Jot something down"
-            className="input"
+            className="main__input"
             type="text"
             onCreate={handleCreate} // handleCreate is passed as props onCreate to input so all the magic happens there
           />
-          <Heading isSecondary text="Tasks for today"></Heading>
+          <Heading isSecondary text="Tasks for today" className="content__heading"></Heading>
           <List tasks={getFilteredTasks()} onDone={handleTaskDone} />
           <Filters tasks={tasks} onClick={handleFilterClick} />
         </div>

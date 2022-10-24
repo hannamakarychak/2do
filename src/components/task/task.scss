@@ -1,7 +1,56 @@
+.task {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .task__label {
-  opacity: 0.7;
+  font-size: 18px;
+  margin-left: 12px;
+  order: 2;
+  color: var(--color-glaucous-semi-opaque);
 
   &--completed {
     opacity: 0.4;
+    text-decoration: line-through;
+
+    & + .task__checkbox::before {
+      border: 1px solid var(--color-glaucous-semi-opaque);
+    }
+
+    & + .task__checkbox::after {
+      display: inline-block;
+      position: absolute;
+      opacity: 1;
+      width: 14px;
+      height: 14px;
+      left: 4px;
+      top: 2px;
+      background-image: url("../../icons/tick.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: opacity 0.2s ease-in;
+    }
+  }
+}
+
+.task__checkbox {
+  display: flex;
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+
+  &::before {
+    display: inline-block;
+    content: "";
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--color-glaucous-opaque);
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: "";
+    opacity: 0;
   }
 }

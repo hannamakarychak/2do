@@ -1,8 +1,13 @@
 .main {
-  background-color: var(--color-nyanza);
   padding: 100px 0;
   height: 100vh;
+  background-color: var(--color-nyanza);
 }
 
 .main__content {
+  margin-top: 30px;
+}
+
+.main__input {
+  width: 100%;
 }

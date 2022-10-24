@@ -1,6 +1,7 @@
+import "./filters.scss";
 import { Button } from "../button/button";
 
-const FILTERS = ["ALL", "ACTIVE", "COMPLETED"];
+const FILTERS = ["All", "Active", "Completed"];
 
 export const Filters = ({ onClick }) => {
   const listItems = FILTERS.map((filter) => {
