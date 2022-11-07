@@ -1,8 +1,10 @@
 import classNames from "classnames";
+import { DeleteButton } from "../delete-button/delete-button";
 import "./task.scss";
 
-export const Task = ({ task, onDone, className }) => {
+export const Task = ({ task, onDone, onDelete, className }) => {
   // onDone(task.id) we use to lift up id of the clicked element (it is being lifted up to Main). Callback in onClick calls onDone function
+
   return (
     <li key={task.id} className={classNames("task", className)}>
       <label
@@ -21,6 +23,7 @@ export const Task = ({ task, onDone, className }) => {
         name={task.text}
         onClick={() => onDone(task.id)}
       />
+      <DeleteButton className="task__delete-button" onClick={() => onDelete(task.id)} />
     </li>
   );
 };

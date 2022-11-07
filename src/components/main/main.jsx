@@ -4,6 +4,7 @@ import { Container } from "../container/container";
 import { List } from "../list/list";
 import { Input } from "../input/input";
 import { Filters } from "../filters/filters";
+import { Counter } from "../counter/counter";
 import "./main.scss";
 import "../content/content.scss";
 
@@ -29,6 +30,8 @@ const Main = () => {
     return filteredTasks;
   };
 
+  const activeTasksCount = tasks.filter((task) => !task.isDone).length;
+
   const handleTaskDone = (taskId) => {
     // tasksId is being lifted up from Task because we pass handleTaskDone function to List and then to Task
     const updatedTasks = tasks.map((task) => {
@@ -43,6 +46,11 @@ const Main = () => {
       } // map returns a new array with updated element as per condition above
     });
 
+    setTasks(updatedTasks);
+  };
+
+  const handleDeleteTaskClick = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(updatedTasks);
   };
 
@@ -71,9 +79,24 @@ const Main = () => {
             type="text"
             onCreate={handleCreate} // handleCreate is passed as props onCreate to input so all the magic happens there
           />
-          <Heading isSecondary text="Tasks for today" className="content__heading"></Heading>
-          <List tasks={getFilteredTasks()} onDone={handleTaskDone} />
-          <Filters tasks={tasks} onClick={handleFilterClick} />
+          {tasks.length !== 0 ? (
+            <Heading isSecondary text="Tasks for today" className="content__heading"></Heading>
+          ) : (
+            ""
+          )}
+          <List
+            tasks={getFilteredTasks()}
+            onDone={handleTaskDone}
+            onDelete={handleDeleteTaskClick}
+          />
+          {tasks.length !== 0 ? (
+            <div className="main__bottom">
+              <Counter activeTasks={activeTasksCount} />
+              <Filters tasks={tasks} onClick={handleFilterClick} activeFilter={activeFilter} />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </Container>
     </main>

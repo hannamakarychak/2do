@@ -1,19 +1,23 @@
 import "./filters.scss";
 import { Button } from "../button/button";
+import classNames from "classnames";
 
-const FILTERS = ["All", "Active", "Completed"];
+const FILTERS = ["ALL", "ACTIVE", "COMPLETED"];
 
-export const Filters = ({ onClick }) => {
+export const Filters = ({ onClick, activeFilter }) => {
   const listItems = FILTERS.map((filter) => {
     return (
       <li className="filters__item" key={filter}>
-        <Button text={filter} className="filters__button" onClick={() => onClick(filter)} />
+        <Button
+          text={filter.toLowerCase()}
+          className={classNames(
+            "filters__button",
+            filter === activeFilter ? "filters__button--active" : ""
+          )}
+          onClick={() => onClick(filter)}
+        />
       </li>
     );
   });
-  return (
-    <div className="filters">
-      <ul className="filters__list">{listItems}</ul>
-    </div>
-  );
+  return <ul className="filters">{listItems}</ul>;
 };

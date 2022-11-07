@@ -2,7 +2,16 @@
   border: none;
   background-color: transparent;
   text-transform: capitalize;
+  padding: 16px;
   font-size: 16px;
   cursor: pointer;
   color: var(--color-granny-smith-apple-darker);
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 1;
+  }
 }
