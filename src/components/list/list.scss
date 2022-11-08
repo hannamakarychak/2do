@@ -6,4 +6,12 @@
 
 .list__item {
   margin-bottom: 12px;
+
+  &:hover .task__delete-button {
+    opacity: 0.8;
+  }
+
+  &:active .task__delete-button {
+    opacity: 1;
+  }
 }

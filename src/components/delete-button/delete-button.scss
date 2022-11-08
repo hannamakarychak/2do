@@ -1,0 +1,17 @@
+.delete-button {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: var(--color-china-pink);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}

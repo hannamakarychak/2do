@@ -8,6 +8,7 @@
   font-size: 18px;
   margin-left: 12px;
   order: 2;
+  margin-right: auto;
   cursor: pointer;
   color: var(--color-glaucous-semi-opaque);
 
@@ -55,4 +56,10 @@
     content: "";
     opacity: 0;
   }
+}
+
+.task__delete-button {
+  order: 3;
+  opacity: 0;
+  cursor: pointer;
 }

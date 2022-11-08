@@ -1,8 +1,9 @@
 import classNames from "classnames";
+import "./delete-button.scss";
 
 export const DeleteButton = ({ className, onClick }) => {
   return (
-    <button onClick={onClick} className={classNames("button", className)}>
+    <button onClick={onClick} className={classNames("delete-button", className)}>
       <svg
         width="20"
         height="20"
