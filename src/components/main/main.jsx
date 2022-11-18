@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TasksContext } from "../../context/tasks-context";
 import { Heading } from "../heading/heading";
 import { Container } from "../container/container";
 import { List } from "../list/list";
@@ -9,7 +10,7 @@ import "./main.scss";
 import "../content/content.scss";
 
 const Main = () => {
-  const [tasks, setTasks] = useState([]); // state is declared on the upper level so we can show tasks in the list
+  const { tasks, setTasks } = useContext(TasksContext);
 
   const [activeFilter, setActiveFilter] = useState("ALL");
 
@@ -92,7 +93,7 @@ const Main = () => {
           {tasks.length !== 0 ? (
             <div className="main__bottom">
               <Counter activeTasks={activeTasksCount} />
-              <Filters tasks={tasks} onClick={handleFilterClick} activeFilter={activeFilter} />
+              <Filters onClick={handleFilterClick} activeFilter={activeFilter} />
             </div>
           ) : (
             ""
