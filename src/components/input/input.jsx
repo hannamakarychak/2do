@@ -16,7 +16,7 @@ export const Input = ({ name, id, placeholder, className, type, onCreate }) => {
   };
 
   const handleEnterPress = (evt) => {
-    if (evt.key === "Enter") {
+    if (evt.key === "Enter" && value !== "") {
       onCreate(value); // same as above happens on Enter press
       setValue("");
     }
@@ -38,7 +38,7 @@ export const Input = ({ name, id, placeholder, className, type, onCreate }) => {
         className="input__button"
         disabled={value === ""}
         onClick={handleButtonClick}
-        text="add"
+        text={value !== "" ? "add" : ""}
       />
     </div>
   );
