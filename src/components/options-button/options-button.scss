@@ -1,0 +1,18 @@
+.options-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.options-button__dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  margin: 2px;
+  opacity: 0;
+  background-color: var(--color-china-pink);
+
+  &:active {
+    opacity: 1;
+  }
+}

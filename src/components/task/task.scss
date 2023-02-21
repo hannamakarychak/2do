@@ -58,8 +58,7 @@
   }
 }
 
-.task__delete-button {
+.task__buttons-wrapper {
+  display: flex;
   order: 3;
-  opacity: 0;
-  cursor: pointer;
 }

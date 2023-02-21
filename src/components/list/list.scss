@@ -7,11 +7,13 @@
 .list__item {
   margin-bottom: 12px;
 
-  &:hover .task__delete-button {
+  &:hover .task__delete-button,
+  &:hover .options-button__dot {
     opacity: 0.8;
   }
 
-  &:active .task__delete-button {
+  &:active .task__delete-button,
+  &:hover .options-button__dot {
     opacity: 1;
   }
 }

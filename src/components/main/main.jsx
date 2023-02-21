@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { TasksContext } from "../../context/tasks-context";
 import { Heading } from "../heading/heading";
 import { Container } from "../container/container";
@@ -14,9 +14,26 @@ const Main = () => {
 
   const [activeFilter, setActiveFilter] = useState("ALL");
 
+  const [activePriority, setActivePriority] = useState("");
+
   const handleFilterClick = (name) => {
     // name is being lifted up from Filters
     setActiveFilter(name);
+  };
+
+  useEffect(() => {
+    const updatedTasks = tasks.map((task) => {
+      return {
+        ...task,
+        priority: activePriority,
+      };
+    });
+
+    setTasks(updatedTasks);
+  }, [activePriority, setTasks]);
+
+  const handleSetPriorityClick = (priority) => {
+    setActivePriority(priority);
   };
 
   const getFilteredTasks = () => {
@@ -61,6 +78,7 @@ const Main = () => {
       id: Date.now(),
       text: text, // new task is created with text that user adds in input
       isDone: false,
+      priority: "",
     };
     const newTasks = [...tasks, newTask]; // we copy an array with all existing tasks and add new task to the array
 
@@ -89,6 +107,7 @@ const Main = () => {
             tasks={getFilteredTasks()}
             onDone={handleTaskDone}
             onDelete={handleDeleteTaskClick}
+            onSetPriority={handleSetPriorityClick}
           />
           {tasks.length !== 0 ? (
             <div className="main__bottom">

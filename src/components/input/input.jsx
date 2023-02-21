@@ -31,7 +31,7 @@ export const Input = ({ name, id, placeholder, className, type, onCreate }) => {
         className={classNames("input__element", className)}
         type={type}
         value={value}
-        onChange={handleInputChange} // we set new value from evt.target.value
+        onChange={handleInputChange} // we set new value from evt.target.value.
         onKeyDown={handleEnterPress} // we call handleEnterPress once onKeyDown action happens, and below we call handleButtonClick once click happens
       />
       <Button
