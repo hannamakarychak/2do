@@ -6,6 +6,7 @@
 
 .list__item {
   margin-bottom: 12px;
+  position: relative;
 
   &:hover .task__delete-button,
   &:hover .options-button__dot {

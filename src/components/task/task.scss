@@ -60,5 +60,16 @@
 
 .task__buttons-wrapper {
   display: flex;
+  order: 4;
+}
+
+.task__priority-options {
+  position: absolute;
+
+  top: 22px;
+  right: 0;
+}
+
+.task__options-list {
   order: 3;
 }

@@ -1,6 +1,8 @@
+import classNames from "classnames";
 import { Button } from "../button/button";
+import "./priority-options.scss";
 
-export const PriorityOptions = ({ onClick }) => {
+export const PriorityOptions = ({ onClick, className, hasPriorityList }) => {
   const Priorities = [
     {
       text: "high",
@@ -29,5 +31,5 @@ export const PriorityOptions = ({ onClick }) => {
     );
   });
 
-  return <ul className="priority-options">{priorityItem}</ul>;
+  return <ul className={classNames(className, "priority-options")}>{priorityItem}</ul>;
 };
