@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { TasksContext } from "../../context/tasks-context";
 import { Heading } from "../heading/heading";
 import { Container } from "../container/container";
