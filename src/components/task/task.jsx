@@ -20,8 +20,20 @@ export const Task = ({ task, onDone, onDelete, className, onSetPriority }) => {
     setHasPriorityList(hasPriorityList);
   };
 
+  const handleSetPriority = (priority) => {
+    // we create a new function that has priority lifted from OptionsList, in this function we call a function with 2 values (task.id and priority) since we need both values. in Main a function of changing priority is described (handleSetPriorityClick)
+    onSetPriority(task.id, priority);
+  };
+
   return (
     <li key={task.id} className={classNames("task", className)}>
+      <input
+        className="task__checkbox"
+        type="checkbox"
+        id={task.id}
+        name={task.text}
+        onClick={() => onDone(task.id)}
+      />
       <label
         htmlFor={task.id}
         className={classNames({
@@ -31,14 +43,15 @@ export const Task = ({ task, onDone, onDelete, className, onSetPriority }) => {
       >
         {task.text}
       </label>
-      <input
-        className="task__checkbox"
-        type="checkbox"
-        id={task.id}
-        name={task.text}
-        onClick={() => onDone(task.id)}
-      />
 
+      {hasPriorityList && (
+        <PriorityOptions
+          onClick={handleSetPriority}
+          className="task__priority-options"
+          hasPriorityList={hasPriorityList}
+        />
+      )}
+      {task.priority}
       <div className="task__buttons-wrapper">
         <OptionsButton
           className="task__options-button"
@@ -48,21 +61,6 @@ export const Task = ({ task, onDone, onDelete, className, onSetPriority }) => {
         />
         <DeleteButton className="task__delete-button" onClick={() => onDelete(task.id)} />
       </div>
-      {hasPriorityList && (
-        <PriorityOptions
-          onClick={onSetPriority}
-          className="task__priority-options"
-          hasPriorityList={hasPriorityList}
-        />
-      )}
-      {hasOptionsList && (
-        <OptionsList
-          className="task__options-list"
-          onClick={handleSetPriorityClick}
-          hasPriority={task.priority}
-          hasPriorityList={hasPriorityList}
-        />
-      )}
     </li>
   );
 };

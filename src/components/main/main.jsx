@@ -14,27 +14,27 @@ const Main = () => {
 
   const [activeFilter, setActiveFilter] = useState("ALL");
 
-  const [activePriority, setActivePriority] = useState("");
-
   const handleFilterClick = (name) => {
     // name is being lifted up from Filters
     setActiveFilter(name);
   };
 
-  useEffect(() => {
+  const handleSetPriorityClick = (taskId, priority) => {
     const updatedTasks = tasks.map((task) => {
-      return {
-        ...task,
-        priority: activePriority,
-      };
+      if (task.id === taskId) {
+        return {
+          ...task,
+          priority: priority,
+        };
+      } else {
+        return task;
+      }
     });
 
     setTasks(updatedTasks);
-  }, [activePriority, setTasks]);
-
-  const handleSetPriorityClick = (priority) => {
-    setActivePriority(priority);
   };
+
+  console.log(tasks);
 
   const getFilteredTasks = () => {
     let filteredTasks = [];
@@ -78,7 +78,7 @@ const Main = () => {
       id: Date.now(),
       text: text, // new task is created with text that user adds in input
       isDone: false,
-      priority: "",
+      priority: "medium",
     };
     const newTasks = [...tasks, newTask]; // we copy an array with all existing tasks and add new task to the array
 

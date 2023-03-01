@@ -2,8 +2,8 @@ import classNames from "classnames";
 import { Button } from "../button/button";
 import "./priority-options.scss";
 
-export const PriorityOptions = ({ onClick, className, hasPriorityList }) => {
-  const Priorities = [
+export const PriorityOptions = ({ onClick, className }) => {
+  const priorities = [
     {
       text: "high",
       value: "high",
@@ -18,7 +18,7 @@ export const PriorityOptions = ({ onClick, className, hasPriorityList }) => {
     },
   ];
 
-  const priorityItem = Priorities.map((item, index) => {
+  const priorityItem = priorities.map((item, index) => {
     return (
       <li className="priority-options__item" key={index}>
         <Button
