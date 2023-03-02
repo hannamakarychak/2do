@@ -24,6 +24,8 @@ export const PriorityPicker = ({ className, value, onChange }) => {
     setIsOpen(false);
   };
 
+  const selectedPriority = PRIORITIES.find((item) => value === item.value);
+
   return (
     <div className="priority-picker">
       {isOpen ? (
@@ -45,7 +47,7 @@ export const PriorityPicker = ({ className, value, onChange }) => {
           className={classNames(className, "priority-picker__label")}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {value}
+          {selectedPriority.text}
         </button>
       )}
     </div>
