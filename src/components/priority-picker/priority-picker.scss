@@ -1,0 +1,42 @@
+.priority-picker {
+  width: 70px;
+}
+
+.priority-picker__item,
+.priority-picker__label {
+  padding: 2px 10px;
+  font-size: 14px;
+  width: 100%;
+  color: var(--color-default-white);
+  background-color: var(--color-pumpkin);
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &--low {
+    background-color: var(--color-true-blue);
+  }
+
+  &--high {
+    background-color: var(--color-bright-red);
+  }
+}
+
+.priority-picker__label {
+  border: none;
+}
+
+.priority-picker__item {
+  list-style: none;
+}
+
+.priority-picker__options {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  z-index: 1;
+}

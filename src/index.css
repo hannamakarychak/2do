@@ -15,9 +15,8 @@ code {
 }
 
 :root {
-  --color-maroon: #922724;
+  --color-default-white: #ffff;
   --color-lavender-web: #d7dae5;
-  --color-powder-blue: #a6d8d4;
   --color-nickel: #6b7d7d;
   --color-cambridge-blue: #8eaf9d;
   --color-cultured: #e072a4;
@@ -30,4 +29,7 @@ code {
   --color-glaucous: #6883ba;
   --color-glaucous-semi-opaque: rgb(104, 131, 186, 0.9);
   --color-glaucous-opaque: rgb(104, 131, 186, 0.4);
+  --color-pumpkin: #FF7417;
+  --color-bright-red: #de1738;
+  --color-true-blue: #0073cf;
 }

@@ -26,7 +26,11 @@ export const Task = ({ task, onDone, onDelete, className, onSetPriority }) => {
       >
         {task.text}
       </label>
-      <PriorityPicker className="toADD" value={task.priority} onChange={handlePriorityPick} />
+      <PriorityPicker
+        className="task__priority-picker"
+        value={task.priority}
+        onChange={handlePriorityPick}
+      />
       <div className="task__buttons-wrapper">
         <DeleteButton className="task__delete-button" onClick={() => onDelete(task.id)} />
       </div>

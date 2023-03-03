@@ -34,8 +34,6 @@ const Main = () => {
     setTasks(updatedTasks);
   };
 
-  console.log(tasks);
-
   const getFilteredTasks = () => {
     let filteredTasks = [];
     if (activeFilter === "ALL") {
