@@ -1,7 +1,7 @@
 import { Task } from "../task/task";
 import "./list.scss";
 
-export const List = ({ tasks, onDone, onDelete, onSetPriority }) => {
+export const List = ({ tasks, onDone, onDelete, onSetPriority, onChange }) => {
   // const tasks = useContext(TasksContext);
 
   // console.log(TasksContext);
@@ -15,6 +15,7 @@ export const List = ({ tasks, onDone, onDelete, onSetPriority }) => {
             onDone={onDone}
             onDelete={onDelete}
             onSetPriority={onSetPriority}
+            onChange={onChange}
             key={task.id}
           />
         );

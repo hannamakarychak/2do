@@ -2,9 +2,18 @@
   display: flex;
   align-items: center;
   position: relative;
+
+  &:hover .task__delete-button {
+    opacity: 0.8;
+  }
+
+  &:active .task__delete-button {
+    opacity: 1;
+  }
 }
 
 .task__label {
+  width: 100%;
   font-size: 18px;
   margin-left: 12px;
   margin-right: auto;
@@ -57,11 +66,12 @@
   }
 }
 
-.task__buttons-wrapper {
-  display: flex;
-}
-
 .task__priority-picker {
   position: relative;
-  margin-right: 8px;
+  margin: 0 8px;
+}
+
+.task__input {
+  flex: 1;
+  margin-left: 12px;
 }

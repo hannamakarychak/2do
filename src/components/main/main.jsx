@@ -83,6 +83,20 @@ const Main = () => {
     setTasks(newTasks); // we update state with new array
   };
 
+  const handleChange = (text, taskId) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id !== taskId) {
+        return task;
+      } else {
+        return {
+          ...task,
+          text: text,
+        };
+      }
+    });
+    setTasks(updatedTasks);
+  };
+
   return (
     <main className="main">
       <Container>
@@ -106,6 +120,7 @@ const Main = () => {
             onDone={handleTaskDone}
             onDelete={handleDeleteTaskClick}
             onSetPriority={handleSetPriorityClick}
+            onChange={handleChange}
           />
           {tasks.length !== 0 ? (
             <div className="main__bottom">
